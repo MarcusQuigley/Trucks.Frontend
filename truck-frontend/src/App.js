@@ -1,4 +1,6 @@
 import './App.css';
+import React from 'react';
+import data from './data.js'
 
 function App() {
   const openMenu = function openMenu(){
@@ -7,6 +9,7 @@ function App() {
   const closeMenu= function closeMenu(){
     document.querySelector(".sidebar").classList.remove("open");
   }
+  
   return (
     <div className="grid-container">
     <header className="header"> 
@@ -37,30 +40,19 @@ function App() {
     <main className="main">
         <div className="content">
             <ul className="trucks">
-                <li>
+              {
+                data.trucks.map(t=>
+              
+                <li key={t.Id}>
                     <div className="truck">
-                        <img className="truck-img" src="/images/1998mib.jpg" alt="truck"/>
-                        <div className="truck-name">Hess recreational van</div>
-                        <div className="truck-year">1998</div>
-                        <div className="truck-price">$58</div>
+                        <img className="truck-img" src={t.ImagePath} alt="truck"/>
+                        <div className="truck-name">{t.Name}</div>
+                        <div className="truck-year">{t.Year}</div>
+                        <div className="truck-price">{t.Price}</div>
                     </div>
-                </li>
-                <li>
-                    <div className="truck">
-                        <img className="truck-img" src="/images/1997mib.jpg" alt="truck"/>
-                        <div className="truck-name">Hess Truck w/ 2 racers</div>
-                        <div className="truck-year">1997</div>
-                        <div className="truck-price">$58</div>
-                    </div>
-                </li>
-                <li>
-                    <div className="truck">
-                        <img className="truck-img" src="/images/1996mib.jpg" alt="truck"/>
-                        <div className="truck-name">Hess Emergency Truck</div>
-                        <div className="truck-year">1996</div>
-                        <div className="truck-price">$58</div>
-                    </div>
-                </li>
+                </li>)
+               
+                }
             </ul>
         </div>
         <ul>
