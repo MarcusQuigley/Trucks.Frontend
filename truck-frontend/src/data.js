@@ -6,6 +6,7 @@ export default  {
             Year:'1998',
             Price:'58',
             ImagePath:'/images/1998mib.jpg',
+            Description: 'some description here'
         },
         {
             Name:'Hess Truck w/ 2 racers', 
@@ -13,6 +14,7 @@ export default  {
             Year:'1997',
             Price:'66',
             ImagePath:'/images/1997mib.jpg',
+            Description: 'some description here'
         },
         {
             Name:'Hess Emergency Truck',
@@ -20,8 +22,7 @@ export default  {
             Year:'1996',
             Price:'33',
             ImagePath:'/images/1996mib.jpg',
-        }
-
-        
+            Description: 'some description here'
+        }        
     ]
 }

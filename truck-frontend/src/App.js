@@ -1,6 +1,12 @@
 import './App.css';
 import React from 'react';
-import data from './data.js'
+import {BrowserRouter ,Route, Link} from 'react-router-dom';
+
+import TruckPage from './Pages/TruckPage';
+import HomePage from './Pages/HomePage';
+
+ 
+  
 
 function App() {
   const openMenu = function openMenu(){
@@ -11,13 +17,15 @@ function App() {
   }
   
   return (
+    <BrowserRouter>
     <div className="grid-container">
     <header className="header"> 
         <div className="brand">
             <button onClick={openMenu}>
                 &#9776;
             </button>
-            <a href="index.html" >Trucks</a>
+            <Link to="/">Trucks</Link>
+ 
         </div>
         <div className="header-links">
             <a href="cart.html" >Cart</a>
@@ -39,30 +47,16 @@ function App() {
     </aside>
     <main className="main">
         <div className="content">
-            <ul className="trucks">
-              {
-                data.trucks.map(t=>
-              
-                <li key={t.Id}>
-                    <div className="truck">
-                        <img className="truck-img" src={t.ImagePath} alt="truck"/>
-                        <div className="truck-name">{t.Name}</div>
-                        <div className="truck-year">{t.Year}</div>
-                        <div className="truck-price">{t.Price}</div>
-                    </div>
-                </li>)
-               
-                }
-            </ul>
+          <Route path="/trucks/:id" component={TruckPage} />
+          <Route path="/"  component={HomePage} exact/>
         </div>
-        <ul>
-          <li>truck 2</li>
-        </ul>
+      
     </main>
     <footer className="footer">
-        all shites reserved.
+        all shites reserved!!
     </footer>
 </div>
+</BrowserRouter>
   );
 }
 
